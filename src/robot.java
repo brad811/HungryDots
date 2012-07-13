@@ -2,21 +2,20 @@ import java.util.Random;
 
 public class robot
 {
-	int score;
-	int round;
-	int appetite;
-	double x;
-	double y;
-	double vx;
-	double vy;
-	double min;
-	double max;
-	double turnRadius;
-	double angle;
-	double velocity;
-	double size;
-	double smell;
-	double lastSmell = 0.0D;
+	int score,
+		round,
+		appetite;
+	
+	double x, y,
+		vx, vy,
+		minPos, maxPos,
+		turnRadius,
+		angle,
+		velocity,
+		size,
+		smell,
+		lastSmell = 0.0D;
+	
 	static Random rand = new Random(System.currentTimeMillis());
 
 	robot(double m, double s, int mx, int my, double tr, double vc)
@@ -42,8 +41,8 @@ public class robot
 			this.velocity = vc;
 		}
 
-		this.min = (this.size / 2.0D);
-		this.max = (m - this.size / 2.0D);
+		this.minPos = (this.size / 2.0D);
+		this.maxPos = (m - this.size / 2.0D);
 		this.score = 5;
 		this.round = 0;
 		this.appetite = (400 - (int)(this.velocity * 100.0D));
@@ -142,24 +141,24 @@ public class robot
 		this.x += this.vx;
 		this.y += this.vy;
 
-		if(this.x > this.max)
+		if(this.x > this.maxPos)
 		{
-			this.x = this.max;
+			this.x = this.maxPos;
 			this.angle += this.turnRadius;
 		}
-		if(this.y > this.max)
+		if(this.y > this.maxPos)
 		{
-			this.y = this.max;
+			this.y = this.maxPos;
 			this.angle += this.turnRadius;
 		}
-		if(this.x < this.min)
+		if(this.x < this.minPos)
 		{
-			this.x = this.min;
+			this.x = this.minPos;
 			this.angle += this.turnRadius;
 		}
-		if(this.y < this.min)
+		if(this.y < this.minPos)
 		{
-			this.y = this.min;
+			this.y = this.minPos;
 			this.angle += this.turnRadius;
 		}
 	}

@@ -22,10 +22,12 @@ public class food
 				+ Math.pow(Math.abs(this.y - ry), 2.0D));
 
 		smell -= distance;
+		
 		if(smell < 0.0D)
 		{
 			smell = 0.0D;
 		}
+		
 		return smell;
 	}
 
